@@ -85,4 +85,7 @@ Public Class MDIParent1
 
     Private m_ChildFormNumber As Integer
 
+    Private Sub FileMenu_Click(sender As Object, e As EventArgs) Handles FileMenu.Click
+
+    End Sub
 End Class
