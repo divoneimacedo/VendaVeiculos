@@ -77,6 +77,10 @@ Partial Class MDIParent1
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.NovoVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LocalizarVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NovoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LocalizarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -102,21 +106,21 @@ Partial Class MDIParent1
         '
         'NewToolStripMenuItem
         '
+        Me.NewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoVeículoToolStripMenuItem, Me.LocalizarVeículoToolStripMenuItem})
         Me.NewToolStripMenuItem.Image = CType(resources.GetObject("NewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
         Me.NewToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.NewToolStripMenuItem.Text = "&Nova"
+        Me.NewToolStripMenuItem.Text = "Veiculos"
         '
         'OpenToolStripMenuItem
         '
+        Me.OpenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoClienteToolStripMenuItem, Me.LocalizarClienteToolStripMenuItem})
         Me.OpenToolStripMenuItem.Image = CType(resources.GetObject("OpenToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
         Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.OpenToolStripMenuItem.Text = "&Abrir"
+        Me.OpenToolStripMenuItem.Text = "Clientes"
         '
         'ToolStripSeparator3
         '
@@ -456,6 +460,34 @@ Partial Class MDIParent1
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'NovoVeículoToolStripMenuItem
+        '
+        Me.NovoVeículoToolStripMenuItem.Image = CType(resources.GetObject("NovoVeículoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NovoVeículoToolStripMenuItem.Name = "NovoVeículoToolStripMenuItem"
+        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NovoVeículoToolStripMenuItem.Text = "Novo &Veículo"
+        '
+        'LocalizarVeículoToolStripMenuItem
+        '
+        Me.LocalizarVeículoToolStripMenuItem.Image = CType(resources.GetObject("LocalizarVeículoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LocalizarVeículoToolStripMenuItem.Name = "LocalizarVeículoToolStripMenuItem"
+        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LocalizarVeículoToolStripMenuItem.Text = "Localizar v&eículo"
+        '
+        'NovoClienteToolStripMenuItem
+        '
+        Me.NovoClienteToolStripMenuItem.Image = CType(resources.GetObject("NovoClienteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NovoClienteToolStripMenuItem.Name = "NovoClienteToolStripMenuItem"
+        Me.NovoClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NovoClienteToolStripMenuItem.Text = "Novo &Cliente"
+        '
+        'LocalizarClienteToolStripMenuItem
+        '
+        Me.LocalizarClienteToolStripMenuItem.Image = CType(resources.GetObject("LocalizarClienteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LocalizarClienteToolStripMenuItem.Name = "LocalizarClienteToolStripMenuItem"
+        Me.LocalizarClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LocalizarClienteToolStripMenuItem.Text = "Localizar c&liente"
+        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -530,5 +562,8 @@ Partial Class MDIParent1
     Friend WithEvents ToolBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StatusBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents NovoVeículoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LocalizarVeículoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NovoClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LocalizarClienteToolStripMenuItem As ToolStripMenuItem
 End Class
