@@ -28,7 +28,11 @@ Partial Class MDIParent1
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NovoVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LocalizarVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NovoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LocalizarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,10 +81,6 @@ Partial Class MDIParent1
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.NovoVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LocalizarVeículoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NovoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LocalizarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -113,6 +113,20 @@ Partial Class MDIParent1
         Me.NewToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.NewToolStripMenuItem.Text = "Veiculos"
         '
+        'NovoVeículoToolStripMenuItem
+        '
+        Me.NovoVeículoToolStripMenuItem.Image = CType(resources.GetObject("NovoVeículoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NovoVeículoToolStripMenuItem.Name = "NovoVeículoToolStripMenuItem"
+        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.NovoVeículoToolStripMenuItem.Text = "Novo &Veículo"
+        '
+        'LocalizarVeículoToolStripMenuItem
+        '
+        Me.LocalizarVeículoToolStripMenuItem.Image = CType(resources.GetObject("LocalizarVeículoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LocalizarVeículoToolStripMenuItem.Name = "LocalizarVeículoToolStripMenuItem"
+        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.LocalizarVeículoToolStripMenuItem.Text = "Localizar v&eículo"
+        '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NovoClienteToolStripMenuItem, Me.LocalizarClienteToolStripMenuItem})
@@ -121,6 +135,20 @@ Partial Class MDIParent1
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
         Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.OpenToolStripMenuItem.Text = "Clientes"
+        '
+        'NovoClienteToolStripMenuItem
+        '
+        Me.NovoClienteToolStripMenuItem.Image = CType(resources.GetObject("NovoClienteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NovoClienteToolStripMenuItem.Name = "NovoClienteToolStripMenuItem"
+        Me.NovoClienteToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.NovoClienteToolStripMenuItem.Text = "Novo &Cliente"
+        '
+        'LocalizarClienteToolStripMenuItem
+        '
+        Me.LocalizarClienteToolStripMenuItem.Image = CType(resources.GetObject("LocalizarClienteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LocalizarClienteToolStripMenuItem.Name = "LocalizarClienteToolStripMenuItem"
+        Me.LocalizarClienteToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.LocalizarClienteToolStripMenuItem.Text = "Localizar c&liente"
         '
         'ToolStripSeparator3
         '
@@ -459,34 +487,6 @@ Partial Class MDIParent1
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'NovoVeículoToolStripMenuItem
-        '
-        Me.NovoVeículoToolStripMenuItem.Image = CType(resources.GetObject("NovoVeículoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NovoVeículoToolStripMenuItem.Name = "NovoVeículoToolStripMenuItem"
-        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.NovoVeículoToolStripMenuItem.Text = "Novo &Veículo"
-        '
-        'LocalizarVeículoToolStripMenuItem
-        '
-        Me.LocalizarVeículoToolStripMenuItem.Image = CType(resources.GetObject("LocalizarVeículoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LocalizarVeículoToolStripMenuItem.Name = "LocalizarVeículoToolStripMenuItem"
-        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LocalizarVeículoToolStripMenuItem.Text = "Localizar v&eículo"
-        '
-        'NovoClienteToolStripMenuItem
-        '
-        Me.NovoClienteToolStripMenuItem.Image = CType(resources.GetObject("NovoClienteToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NovoClienteToolStripMenuItem.Name = "NovoClienteToolStripMenuItem"
-        Me.NovoClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.NovoClienteToolStripMenuItem.Text = "Novo &Cliente"
-        '
-        'LocalizarClienteToolStripMenuItem
-        '
-        Me.LocalizarClienteToolStripMenuItem.Image = CType(resources.GetObject("LocalizarClienteToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LocalizarClienteToolStripMenuItem.Name = "LocalizarClienteToolStripMenuItem"
-        Me.LocalizarClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.LocalizarClienteToolStripMenuItem.Text = "Localizar c&liente"
         '
         'MDIParent1
         '

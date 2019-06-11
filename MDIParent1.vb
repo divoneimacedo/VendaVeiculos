@@ -88,4 +88,8 @@ Public Class MDIParent1
     Private Sub FileMenu_Click(sender As Object, e As EventArgs) Handles FileMenu.Click
 
     End Sub
+
+    Private Sub ToolStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip.ItemClicked
+
+    End Sub
 End Class
