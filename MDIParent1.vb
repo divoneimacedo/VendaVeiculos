@@ -37,7 +37,9 @@ Public Class MDIParent1
 
 
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
+
         Me.Close()
+
     End Sub
 
     Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CutToolStripMenuItem.Click
@@ -92,4 +94,25 @@ Public Class MDIParent1
     Private Sub ToolStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip.ItemClicked
 
     End Sub
+
+    Private Sub MDIParent1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'MessageBox.Show("teste")
+        Me.MaximizeBox = False
+        Me.WindowState = FormWindowState.Maximized
+
+    End Sub
+
+    Private Sub MDIParent1_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.FormClosing
+        Dim result = MessageBox.Show("Deseja sair do programa?", "Sair do programa", MessageBoxButtons.YesNo)
+        If result = DialogResult.No Then
+            e.Cancel = True
+        Else
+            LoginForm1.Close()
+        End If
+    End Sub
+
+
+
+
+
 End Class

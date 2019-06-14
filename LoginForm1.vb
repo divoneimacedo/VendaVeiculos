@@ -9,7 +9,13 @@ Public Class LoginForm1
     ' como nome de usuário, nome de exibição etc.
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
-        Me.Close()
+
+        If txtPassword.Text <> "" And txtUserName.Text <> "" Then
+            MDIParent1.Show()
+            Me.Hide()
+        Else
+            MessageBox.Show("Favor inserir os dados de acesso")
+        End If
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
