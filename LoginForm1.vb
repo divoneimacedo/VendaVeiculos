@@ -11,8 +11,11 @@ Public Class LoginForm1
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
 
         If txtPassword.Text <> "" And txtUserName.Text <> "" Then
-            MDIParent1.Show()
-            Me.Hide()
+            Dim conexao = New model
+            conexao.connect()
+
+            'MDIParent1.Show()
+            'Me.Hide()
         Else
             MessageBox.Show("Favor inserir os dados de acesso")
         End If
