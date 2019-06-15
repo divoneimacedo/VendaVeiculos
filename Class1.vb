@@ -1,23 +1,54 @@
-﻿Public Class model
+﻿Imports System.Configuration
+Imports MySql.Data.MySqlClient
+Public Class model
 
-    Dim pConexao As ADODB.Connection
-    Dim strTemp As String
-
+    Dim StringConexao As String = ConfigurationManager.ConnectionStrings("ConexaoMysql").ConnectionString()
+    Dim conexaoMySql As MySqlConnection
+    Dim ComandoMysql As MySqlCommand
+    Dim leitorDataReader As MySqlDataReader
 
     Public Function connect()
+        Try
+            conexaoMySql = New MySqlConnection(StringConexao)
+            Return True
+        Catch ex As Exception
+        Finally
 
-        pConexao = New ADODB.Connection
-        pConexao.Open("DRIVER={MySQL ODBC 3.51 Driver};user=root;password=;server=localhos;option=20499")
-
-        If pConexao.State = 1 Then
-            MessageBox.Show("Conexao com sucesso")
-        Else
-            MessageBox.Show("sem conexao")
-        End If
-
-
+        End Try
 
     End Function
+
+    Public Function __ExecutaQuery(SQL As String)
+        Try
+            ComandoMysql = New MySqlCommand(SQL, conexaoMySql)
+            conexaoMySql.Open()
+            leitorDataReader = ComandoMysql.ExecuteReader()
+            Return leitorDataReader
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+    End Function
+
+    Public Function __CloseReader()
+        Try
+            leitorDataReader.Close()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+
+    Public Function __closeConnect()
+        Try
+            conexaoMySql.Close()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+
 
 
 End Class

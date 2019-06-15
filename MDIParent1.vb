@@ -111,8 +111,10 @@ Public Class MDIParent1
         End If
     End Sub
 
+    Private Sub NovoVeículoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NovoVeículoToolStripMenuItem.Click
+        Dim formCadVeiculos As New frmCadVeiculos
+        formCadVeiculos.MdiParent = Me
+        formCadVeiculos.Show()
 
-
-
-
+    End Sub
 End Class

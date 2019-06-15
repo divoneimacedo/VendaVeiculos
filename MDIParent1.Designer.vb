@@ -117,14 +117,14 @@ Partial Class MDIParent1
         '
         Me.NovoVeículoToolStripMenuItem.Image = CType(resources.GetObject("NovoVeículoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.NovoVeículoToolStripMenuItem.Name = "NovoVeículoToolStripMenuItem"
-        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NovoVeículoToolStripMenuItem.Text = "Novo &Veículo"
         '
         'LocalizarVeículoToolStripMenuItem
         '
         Me.LocalizarVeículoToolStripMenuItem.Image = CType(resources.GetObject("LocalizarVeículoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LocalizarVeículoToolStripMenuItem.Name = "LocalizarVeículoToolStripMenuItem"
-        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LocalizarVeículoToolStripMenuItem.Text = "Localizar v&eículo"
         '
         'OpenToolStripMenuItem
