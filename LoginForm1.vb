@@ -1,4 +1,3 @@
-Imports System.Configuration
 Imports MySql.Data.MySqlClient
 Public Class LoginForm1
 
@@ -15,27 +14,36 @@ Public Class LoginForm1
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Dim sql As String
         Dim mysqlDataReader As MySqlDataReader
+        Dim totalRegistros As Integer = 0
         modelo = New model
         If txtPassword.Text <> "" And txtUserName.Text <> "" Then
             Try
                 modelo.connect()
-                sql = "Select id, user_name, user_login from users Where user_login = '" + txtUserName.Text + "' and user_password = md5('" + txtPassword.Text + "') or 1=1"
+                sql = "Select id, user_name, user_login from users Where user_login = '" + txtUserName.Text + "' and user_password = md5('" + txtPassword.Text + "')"
                 mysqlDataReader = modelo.__ExecutaQuery(sql)
-
-                While mysqlDataReader.Read()
-                    user_name = mysqlDataReader.Item("user_name")
-                    MessageBox.Show(mysqlDataReader.Read)
-                End While
+                Console.WriteLine(mysqlDataReader.HasRows)
+                Console.WriteLine(sql)
                 If mysqlDataReader.HasRows Then
-                    'user_name
-
-                    'MDIParent1.Show()
-                    'Me.Hide()
+                    While mysqlDataReader.Read()
+                        If (totalRegistros > 0) Then
+                            totalRegistros += 1
+                            Exit While
+                        End If
+                        user_name = mysqlDataReader.Item("user_name")
+                        user_id = mysqlDataReader.Item("id")
+                        totalRegistros += 1
+                    End While
+                    If totalRegistros = 1 Then
+                        MDIParent1.Show()
+                        Me.Hide()
+                    Else
+                        MessageBox.Show("Dados errados por favor tente novamente.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Else
+                    MessageBox.Show("Usuário ou senha inválido.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Catch ex As Exception
                 MessageBox.Show("Erro " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                mysqlDataReader.Close()
             End Try
 
         Else
@@ -52,4 +60,7 @@ Public Class LoginForm1
         modelo.__closeConnect()
     End Sub
 
+    Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

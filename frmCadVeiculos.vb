@@ -33,14 +33,14 @@ Public Class frmCadVeiculos
 
     Private Sub FrmCadVeiculos_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         'MessageBox.Show(Me.Width)
-        Console.WriteLine(Me.Width)
+        'Console.WriteLine(Me.Width)
         Dim tamanhoForm As Integer = (Me.Size.Width - 110)
-        Console.WriteLine((tamanhoForm))
+        'Console.WriteLine((tamanhoForm))
         gbDadosUsuario.Refresh()
 
         gbDadosUsuario.SetBounds(21, 29, tamanhoForm, gbDadosUsuario.Size.Height)
         gbDadosUsuario.Refresh()
-        Console.WriteLine("Tamanho grid: " + gbDadosUsuario.Size.Width.ToString)
+        'Console.WriteLine("Tamanho grid: " + gbDadosUsuario.Size.Width.ToString)
         lblUsuario.Refresh()
         lblUsuario.SetBounds(lblUsuario.Location.X, lblUsuario.Location.Y, (gbDadosUsuario.Size.Width - 40), lblUsuario.Size.Height)
         lblUsuario.Refresh()

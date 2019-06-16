@@ -94,6 +94,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.vb" />
+    <Compile Include="frmVehicleTypeList.Designer.vb">
+      <DependentUpon>frmVehicleTypeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVehicleTypeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVehiclesTypeCad.Designer.vb">
+      <DependentUpon>frmVehiclesTypeCad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVehiclesTypeCad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCadVeiculos.Designer.vb">
       <DependentUpon>frmCadVeiculos.vb</DependentUpon>
     </Compile>
@@ -129,8 +141,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmVehiclesTypeCad.resx">
+      <DependentUpon>frmVehiclesTypeCad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadVeiculos.resx">
       <DependentUpon>frmCadVeiculos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVehicleTypeList.resx">
+      <DependentUpon>frmVehicleTypeList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm1.resx">
       <DependentUpon>LoginForm1.vb</DependentUpon>

@@ -3,10 +3,10 @@ Imports MySql.Data.MySqlClient
 Public Class model
 
     Dim StringConexao As String = ConfigurationManager.ConnectionStrings("ConexaoMysql").ConnectionString()
-    Dim conexaoMySql As MySqlConnection
-    Dim ComandoMysql As MySqlCommand
+    Public conexaoMySql As MySqlConnection
+    Public ComandoMysql As MySqlCommand
     Dim leitorDataReader As MySqlDataReader
-
+    Dim dataAdapter As MySqlDataAdapter
     Public Function connect()
         Try
             conexaoMySql = New MySqlConnection(StringConexao)
@@ -21,11 +21,39 @@ Public Class model
     Public Function __ExecutaQuery(SQL As String)
         Try
             ComandoMysql = New MySqlCommand(SQL, conexaoMySql)
-            conexaoMySql.Open()
+            Dim temp = conexaoMySql.State.ToString
+            Console.WriteLine(temp)
+            If temp = "Closed" Then
+                conexaoMySql.Open()
+            ElseIf temp = "Open" Then
+                conexaoMySql.Close()
+                conexaoMySql.Open()
+            End If
+
             leitorDataReader = ComandoMysql.ExecuteReader()
             Return leitorDataReader
         Catch ex As Exception
-            Return ex.Message
+            'Return ex.Message
+            MessageBox.Show("Erro model class" + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            'conexaoMySql.Close()
+        End Try
+    End Function
+
+
+    Public Function __ExecutaQueryAdpter(SQL)
+        Try
+            Dim temp = conexaoMySql.State.ToString
+            If temp = "Closed" Then
+                conexaoMySql.Open()
+            ElseIf temp = "Open" Then
+                conexaoMySql.Close()
+                conexaoMySql.Open()
+            End If
+            ComandoMysql = New MySqlCommand(SQL, conexaoMySql)
+        Catch ex As Exception
+            'Return ex.Message
+            MessageBox.Show("Erro model class" + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Function
 
