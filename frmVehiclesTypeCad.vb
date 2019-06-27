@@ -1,6 +1,7 @@
 ﻿Imports System.Configuration
 Imports MySql.Data.MySqlClient
 Public Class frmVehiclesTypes
+
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Me.Text = ConfigurationManager.AppSettings.Keys("vehiclesType")
         Dim appSettings = ConfigurationManager.AppSettings
@@ -12,8 +13,12 @@ Public Class frmVehiclesTypes
     End Sub
 
     Private Sub BtnVehicleTypeCancel_Click(sender As Object, e As EventArgs) Handles btnVehicleTypeCancel.Click
+        'frmVehicleTypeList.fillDataGrid()
         Me.Close()
+    End Sub
 
+    Private Sub frmVehiclesTypes_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        frmVehicleTypeList.fillDataGrid()
     End Sub
 
     Private Sub BtnSaveVehicleType_Click(sender As Object, e As EventArgs) Handles btnSaveVehicleType.Click

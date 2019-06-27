@@ -24,9 +24,9 @@ Partial Class frmVehicleTypeList
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicleTypeList))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.dataGridVehicleType = New System.Windows.Forms.DataGridView()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.dataGridVehicleType = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataGridVehicleType, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,6 +40,14 @@ Partial Class frmVehicleTypeList
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo Veículos"
+        '
+        'dataGridVehicleType
+        '
+        Me.dataGridVehicleType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridVehicleType.Location = New System.Drawing.Point(6, 19)
+        Me.dataGridVehicleType.Name = "dataGridVehicleType"
+        Me.dataGridVehicleType.Size = New System.Drawing.Size(693, 382)
+        Me.dataGridVehicleType.TabIndex = 0
         '
         'btnEdit
         '
@@ -63,14 +71,6 @@ Partial Class frmVehicleTypeList
         Me.btnAdd.TabIndex = 2
         Me.btnAdd.Text = "&Novo"
         Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'dataGridVehicleType
-        '
-        Me.dataGridVehicleType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dataGridVehicleType.Location = New System.Drawing.Point(6, 19)
-        Me.dataGridVehicleType.Name = "dataGridVehicleType"
-        Me.dataGridVehicleType.Size = New System.Drawing.Size(693, 382)
-        Me.dataGridVehicleType.TabIndex = 0
         '
         'frmVehicleTypeList
         '
