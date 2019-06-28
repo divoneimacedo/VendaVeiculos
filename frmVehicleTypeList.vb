@@ -17,23 +17,27 @@ Public Class frmVehicleTypeList
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim frmVehiclesTypeCad As New frmVehiclesTypes
-        'frmVehiclesTypes.MdiParent = MDIParent1
-        'frmVehiclesTypes.TopMost = True
+        'frmVehiclesTypeCad.MdiParent = MDIParent1
+        frmVehiclesTypeCad.Owner = Me
+        frmVehiclesTypeCad.TopMost = True
+        frmVehiclesTypeCad.Show()
         'frmVehiclesTypes.m
-        frmVehiclesTypes.ShowDialog()
+        'frmVehiclesTypes.ShowDialog()
 
 
     End Sub
 
-    Public Sub fillDataGrid()
+    Public Function fillDataGrid()
 
         Dim SDA As New MySqlDataAdapter
         Dim DB As New DataTable
         Dim bSource As New BindingSource
         Dim SQL As String = ""
         idType = 0
+        dataGridVehicleType.ReadOnly = True
+        dataGridVehicleType.DataSource = Nothing
         Try
-            SQL = "SELECT vehicle_type_id as `#`, vehicle_type_name as `Tipo Veiculo`  FROM  vehicle_types ORDER BY vehicle_type_name "
+            SQL = "SELECT vehicle_type_id as `ID`, vehicle_type_name as `Tipo`  FROM  vehicle_types ORDER BY vehicle_type_name "
             LoginForm1.modelo.__ExecutaQueryAdpter(SQL)
             SDA.SelectCommand = LoginForm1.modelo.ComandoMysql
             SDA.Fill(DB)
@@ -42,17 +46,17 @@ Public Class frmVehicleTypeList
             dataGridVehicleType.DataSource = bSource
             Console.WriteLine(bSource)
             dataGridVehicleType.Refresh()
-            dataGridVehicleType.Update()
 
-            SDA.Update(DB)
-            'LoginForm1.modelo.__CloseReader()
-            'LoginForm1.modelo.__closeConnect()
+            'SDA.Update(DB)
+            LoginForm1.modelo.__CloseReader()
+            LoginForm1.modelo.__closeConnect()
             Console.WriteLine(" id type full grid " + idType.ToString)
+
         Catch ex As Exception
             MessageBox.Show("Erro " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-    End Sub
+    End Function
 
 
     Private Sub DataGridVehicleType_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataGridVehicleType.CellClick
@@ -60,12 +64,22 @@ Public Class frmVehicleTypeList
             Console.WriteLine(e.RowIndex)
             Exit Sub
         End If
-        fillDataGrid()
+        'fillDataGrid()
+
         Dim intIndex As Integer = e.RowIndex
+        Try
+            dataGridVehicleType.Rows(intIndex).Selected = True
+            idType = dataGridVehicleType.Rows(intIndex).Cells(0).Value
+            Console.WriteLine(idType)
+        Catch ex As Exception
 
-        dataGridVehicleType.Rows(intIndex).Selected = True
-        idType = dataGridVehicleType.Rows(intIndex).Cells(0).Value
-        Console.WriteLine(idType)
+        End Try
 
+
+
+    End Sub
+
+    Private Sub BtnRefres_Click(sender As Object, e As EventArgs) Handles btnRefres.Click
+        dataGridVehicleType.DataSource = Nothing
     End Sub
 End Class

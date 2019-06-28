@@ -27,6 +27,7 @@ Partial Class frmVehicleTypeList
         Me.dataGridVehicleType = New System.Windows.Forms.DataGridView()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnRefres = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataGridVehicleType, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,7 +47,7 @@ Partial Class frmVehicleTypeList
         Me.dataGridVehicleType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dataGridVehicleType.Location = New System.Drawing.Point(6, 19)
         Me.dataGridVehicleType.Name = "dataGridVehicleType"
-        Me.dataGridVehicleType.Size = New System.Drawing.Size(693, 382)
+        Me.dataGridVehicleType.Size = New System.Drawing.Size(699, 382)
         Me.dataGridVehicleType.TabIndex = 0
         '
         'btnEdit
@@ -72,11 +73,21 @@ Partial Class frmVehicleTypeList
         Me.btnAdd.Text = "&Novo"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
+        'btnRefres
+        '
+        Me.btnRefres.Location = New System.Drawing.Point(744, 289)
+        Me.btnRefres.Name = "btnRefres"
+        Me.btnRefres.Size = New System.Drawing.Size(144, 38)
+        Me.btnRefres.TabIndex = 3
+        Me.btnRefres.Text = "Atualizar"
+        Me.btnRefres.UseVisualStyleBackColor = True
+        '
         'frmVehicleTypeList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 450)
+        Me.Controls.Add(Me.btnRefres)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.GroupBox1)
@@ -92,4 +103,5 @@ Partial Class frmVehicleTypeList
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents dataGridVehicleType As DataGridView
+    Friend WithEvents btnRefres As Button
 End Class

@@ -1,7 +1,6 @@
 ﻿Imports System.Configuration
 Imports MySql.Data.MySqlClient
 Public Class frmVehiclesTypes
-
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Me.Text = ConfigurationManager.AppSettings.Keys("vehiclesType")
         Dim appSettings = ConfigurationManager.AppSettings
@@ -15,10 +14,12 @@ Public Class frmVehiclesTypes
     Private Sub BtnVehicleTypeCancel_Click(sender As Object, e As EventArgs) Handles btnVehicleTypeCancel.Click
         'frmVehicleTypeList.fillDataGrid()
         Me.Close()
+        'Dim RowCount As Integer = CType(Me.Owner, frmVehicleTypeList).fillDataGrid()
+        'MessageBox.Show("Row count for Form1.DataGridView1 is " & RowCount.ToString)
     End Sub
 
     Private Sub frmVehiclesTypes_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        frmVehicleTypeList.fillDataGrid()
+        Dim RowCount As Integer = CType(Me.Owner, frmVehicleTypeList).fillDataGrid()
     End Sub
 
     Private Sub BtnSaveVehicleType_Click(sender As Object, e As EventArgs) Handles btnSaveVehicleType.Click
@@ -30,6 +31,8 @@ Public Class frmVehiclesTypes
                 mysqlDataReader = LoginForm1.modelo.__ExecutaQuery(SQL)
                 'Console.WriteLine(mysqlDataReader.RecordsAffected)
                 If mysqlDataReader.RecordsAffected = 1 Then
+                    'fillDataGrid()
+                    Dim RowCount As Integer = CType(Me.Owner, frmVehicleTypeList).fillDataGrid()
                     MessageBox.Show("Dados salvos com sucesso", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     txtVehicleTypeName.Text = ""
                     txtVehicleTypeName.Select()
