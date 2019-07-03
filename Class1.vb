@@ -12,6 +12,7 @@ Public Class model
             conexaoMySql = New MySqlConnection(StringConexao)
             Return True
         Catch ex As Exception
+
         Finally
 
         End Try

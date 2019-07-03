@@ -8,7 +8,7 @@ Public Class LoginForm1
     ' onde CustomPrincipal é a implementação de IPrincipal usada para realizar a autenticação. 
     ' Subsequentemente, My.User irá retornar informações de identificação encapsuladas num objeto CustomPrincipal
     ' como nome de usuário, nome de exibição etc.
-    Public Shared modelo As model
+    Private modelo As model
     Public Shared user_name As String
     Public Shared user_id As Integer
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
@@ -35,6 +35,8 @@ Public Class LoginForm1
                     End While
                     If totalRegistros = 1 Then
                         MDIParent1.Show()
+                        modelo.__closeConnect()
+                        modelo.__CloseReader()
                         Me.Hide()
                     Else
                         MessageBox.Show("Dados errados por favor tente novamente.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)

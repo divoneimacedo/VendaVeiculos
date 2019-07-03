@@ -27,7 +27,7 @@ Partial Class frmVehicleTypeList
         Me.dataGridVehicleType = New System.Windows.Forms.DataGridView()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnRefres = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataGridVehicleType, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,21 +73,24 @@ Partial Class frmVehicleTypeList
         Me.btnAdd.Text = "&Novo"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'btnRefres
+        'btnDelete
         '
-        Me.btnRefres.Location = New System.Drawing.Point(744, 289)
-        Me.btnRefres.Name = "btnRefres"
-        Me.btnRefres.Size = New System.Drawing.Size(144, 38)
-        Me.btnRefres.TabIndex = 3
-        Me.btnRefres.Text = "Atualizar"
-        Me.btnRefres.UseVisualStyleBackColor = True
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(744, 289)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(144, 38)
+        Me.btnDelete.TabIndex = 3
+        Me.btnDelete.Text = "E&xcluir"
+        Me.btnDelete.UseVisualStyleBackColor = True
         '
         'frmVehicleTypeList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 450)
-        Me.Controls.Add(Me.btnRefres)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.GroupBox1)
@@ -103,5 +106,5 @@ Partial Class frmVehicleTypeList
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents dataGridVehicleType As DataGridView
-    Friend WithEvents btnRefres As Button
+    Friend WithEvents btnDelete As Button
 End Class
