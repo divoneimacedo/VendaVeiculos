@@ -15,6 +15,7 @@ Public Class frmVehiclesTypes
             btnSaveVehicleType.Text = "&Salvar"
         Else
             btnSaveVehicleType.Text = "E&ditar"
+            dataLoadType()
         End If
 
     End Sub
@@ -36,7 +37,26 @@ Public Class frmVehiclesTypes
             editData()
         End If
     End Sub
+    Private Sub dataLoadType()
+        Dim SQL As String
+        Dim mysqlDataReader As MySqlDataReader
+        If frmVehicleTypeList.idType > 0 Then
+            Try
 
+                SQL = "SELECT vehicle_type_name FROM vehicle_types Where vehicle_type_id = " + frmVehicleTypeList.idType.ToString + " Limit 1"
+                mysqlDataReader = modelo.__ExecutaQuery(SQL)
+                Console.WriteLine(mysqlDataReader.HasRows)
+                If (mysqlDataReader.HasRows) Then
+                    While mysqlDataReader.Read()
+                        txtVehicleTypeName.Text = mysqlDataReader.Item("vehicle_type_name")
+                    End While
+                    txtVehicleTypeName.Select(txtVehicleTypeName.Text.Length, 0)
+                End If
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+        End If
+    End Sub
     Private Sub saveData()
         Dim SQL As String
         Dim mysqlDataReader As MySqlDataReader
@@ -87,7 +107,11 @@ Public Class frmVehiclesTypes
     End Sub
     Private Sub txtVehicleTypeName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtVehicleTypeName.KeyPress
         If (Asc(e.KeyChar) = 13) Then
-            saveData()
+            If frmVehicleTypeList.idType = 0 Then
+                saveData()
+            Else
+                editData()
+            End If
         End If
     End Sub
 End Class

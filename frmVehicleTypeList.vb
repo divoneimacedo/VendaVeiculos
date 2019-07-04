@@ -10,6 +10,7 @@ Public Class frmVehicleTypeList
         idType = 0
         modelo = New model
         modelo.connect()
+
         fillDataGrid()
     End Sub
 
@@ -29,6 +30,8 @@ Public Class frmVehicleTypeList
         Dim DB As New DataTable
         Dim bSource As New BindingSource
         Dim SQL As String = ""
+        Dim total As Integer
+        Dim widthColumns As Double
         idType = 0
         dataGridVehicleType.ReadOnly = True
         dataGridVehicleType.DataSource = Nothing
@@ -44,6 +47,14 @@ Public Class frmVehicleTypeList
             'Console.WriteLine(bSource)
             dataGridVehicleType.Refresh()
             'Console.WriteLine(" id type full grid " + idType.ToString)
+            total = (dataGridVehicleType.Columns.Count)
+            widthColumns = (dataGridVehicleType.Width - 45) / total
+            Console.WriteLine(widthColumns)
+            total = total - 1
+            For index = 0 To total Step 1
+                dataGridVehicleType.Columns.Item(index).Width = widthColumns
+                Console.WriteLine(index)
+            Next
 
         Catch ex As Exception
             MessageBox.Show("Erro " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -64,7 +75,7 @@ Public Class frmVehicleTypeList
             idType = dataGridVehicleType.Rows(intIndex).Cells(0).Value
             btnDelete.Enabled = True
             btnEdit.Enabled = True
-            Console.WriteLine(idType)
+            'Console.WriteLine(idType)
         Catch ex As Exception
 
         End Try
@@ -109,5 +120,27 @@ Public Class frmVehicleTypeList
             btnEdit.Enabled = False
             btnDelete.Enabled = False
         End If
+    End Sub
+
+    Private Sub dataGridVehicleType_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataGridVehicleType.CellDoubleClick
+        Dim frmVehiclesTypeCad As New frmVehiclesTypes
+        If e.RowIndex < 0 Then
+            Console.WriteLine(e.RowIndex)
+            Exit Sub
+        End If
+        Dim intIndex As Integer = e.RowIndex
+        Try
+            dataGridVehicleType.Rows(intIndex).Selected = True
+            idType = dataGridVehicleType.Rows(intIndex).Cells(0).Value
+            btnDelete.Enabled = True
+            btnEdit.Enabled = True
+            frmVehiclesTypeCad.Owner = Me
+            frmVehiclesTypeCad.TopMost = True
+            frmVehiclesTypeCad.ShowDialog()
+            'Console.WriteLine(idType)
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

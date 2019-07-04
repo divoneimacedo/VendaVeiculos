@@ -12,7 +12,7 @@ Public Class model
             conexaoMySql = New MySqlConnection(StringConexao)
             Return True
         Catch ex As Exception
-
+            MessageBox.Show("Erro ao conectar ao servidor de dados: " + ex.Message, "Erro conexão", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
 
         End Try
@@ -35,7 +35,7 @@ Public Class model
             Return leitorDataReader
         Catch ex As Exception
             'Return ex.Message
-            MessageBox.Show("Erro model class" + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erro model class " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             'conexaoMySql.Close()
         End Try
