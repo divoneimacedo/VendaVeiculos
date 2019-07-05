@@ -94,27 +94,27 @@ Partial Class MDIParent1
         Me.NewToolStripMenuItem.Image = CType(resources.GetObject("NewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.NewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.NewToolStripMenuItem.Text = "Veiculos"
         '
         'NovoVeículoToolStripMenuItem
         '
         Me.NovoVeículoToolStripMenuItem.Image = CType(resources.GetObject("NovoVeículoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.NovoVeículoToolStripMenuItem.Name = "NovoVeículoToolStripMenuItem"
-        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.NovoVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.NovoVeículoToolStripMenuItem.Text = "Novo &Veículo"
         '
         'LocalizarVeículoToolStripMenuItem
         '
         Me.LocalizarVeículoToolStripMenuItem.Image = CType(resources.GetObject("LocalizarVeículoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LocalizarVeículoToolStripMenuItem.Name = "LocalizarVeículoToolStripMenuItem"
-        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LocalizarVeículoToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.LocalizarVeículoToolStripMenuItem.Text = "Localizar v&eículo"
         '
         'TipoVeículosToolStripMenuItem
         '
         Me.TipoVeículosToolStripMenuItem.Name = "TipoVeículosToolStripMenuItem"
-        Me.TipoVeículosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TipoVeículosToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.TipoVeículosToolStripMenuItem.Text = "&Tipo Veículos"
         '
         'OpenToolStripMenuItem
@@ -123,7 +123,7 @@ Partial Class MDIParent1
         Me.OpenToolStripMenuItem.Image = CType(resources.GetObject("OpenToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.OpenToolStripMenuItem.Text = "Clientes"
         '
         'NovoClienteToolStripMenuItem
@@ -143,7 +143,7 @@ Partial Class MDIParent1
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(114, 6)
         '
         'EditMenu
         '

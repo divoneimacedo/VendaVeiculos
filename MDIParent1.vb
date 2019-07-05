@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class MDIParent1
+    Dim modelo As model
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
         'Dim OpenFileDialog As New OpenFileDialog
         'OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -33,8 +34,10 @@ Public Class MDIParent1
         'Me.MaximizeBox = False
         'Me.WindowState = FormWindowState.Maximized
         lblStBarUserName.Text = LoginForm1.user_name
-
-
+        modelo = New model
+        modelo.connect()
+        Me.Text = modelo.getConfValue("SYSTEM_STORE_NAME") + " - " + modelo.getConfValue("SYSTEM_NAME")
+        lblStBarStatus.Text = modelo.getConfValue("SYSTEM_STORE_NAME")
     End Sub
 
     Private Sub MDIParent1_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.FormClosing
@@ -42,6 +45,7 @@ Public Class MDIParent1
         If result = DialogResult.No Then
             e.Cancel = True
         Else
+            modelo.__closeConnect()
             LoginForm1.Close()
         End If
     End Sub
@@ -70,4 +74,6 @@ Public Class MDIParent1
         formVehicleTpeList.Show()
         'Console.WriteLine("excutou o click")
     End Sub
+
+
 End Class

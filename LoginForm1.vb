@@ -15,41 +15,44 @@ Public Class LoginForm1
         Dim sql As String
         Dim mysqlDataReader As MySqlDataReader
         Dim totalRegistros As Integer = 0
+        Dim connect As Boolean
         modelo = New model
         If txtPassword.Text <> "" And txtUserName.Text <> "" Then
-            Try
-                modelo.connect()
-                sql = "Select id, user_name, user_login from users Where user_login = '" + txtUserName.Text + "' and user_password = md5('" + txtPassword.Text + "')"
-                mysqlDataReader = modelo.__ExecutaQuery(sql)
-                Console.WriteLine(mysqlDataReader.HasRows)
-                Console.WriteLine(sql)
-                If mysqlDataReader.HasRows Then
-                    While mysqlDataReader.Read()
-                        If (totalRegistros > 0) Then
+            connect = modelo.connect()
+            modelo.getConfValue("SYSTEM_STORE_NAME")
+            If connect = True Then
+                Try
+                    sql = "Select id, user_name, user_login from users Where user_login = '" + txtUserName.Text + "' and user_password = md5('" + txtPassword.Text + "')"
+                    mysqlDataReader = modelo.__ExecutaQuery(sql)
+                    'Console.WriteLine(mysqlDataReader.HasRows)
+                    'Console.WriteLine(sql)
+                    If mysqlDataReader.HasRows Then
+                        While mysqlDataReader.Read()
+                            If (totalRegistros > 0) Then
+                                totalRegistros += 1
+                                Exit While
+                            End If
+                            user_name = mysqlDataReader.Item("user_name")
+                            user_id = mysqlDataReader.Item("id")
                             totalRegistros += 1
-                            Exit While
+                        End While
+                        If totalRegistros = 1 Then
+                            MDIParent1.Show()
+                            modelo.__closeConnect()
+                            modelo.__CloseReader()
+                            Me.Hide()
+                        Else
+                            MessageBox.Show("Dados errados por favor tente novamente.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
-                        user_name = mysqlDataReader.Item("user_name")
-                        user_id = mysqlDataReader.Item("id")
-                        totalRegistros += 1
-                    End While
-                    If totalRegistros = 1 Then
-                        MDIParent1.Show()
-                        modelo.__closeConnect()
-                        modelo.__CloseReader()
-                        Me.Hide()
                     Else
-                        MessageBox.Show("Dados errados por favor tente novamente.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Usuário ou senha inválido.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
-                Else
-                    MessageBox.Show("Usuário ou senha inválido.", "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Erro " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-
+                Catch ex As Exception
+                    MessageBox.Show("Erro " + ex.Message, "Erro sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
         Else
-            MessageBox.Show("Favor inserir os dados de acesso")
+                MessageBox.Show("Favor inserir os dados de acesso")
         End If
     End Sub
 
